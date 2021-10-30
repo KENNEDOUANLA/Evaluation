@@ -1,0 +1,28 @@
+{
+    "name": "KENNE APP",
+    "short_name": "My_TOPS",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "skyblue",
+    "orientation": "portrait-primary",
+    "theme_color": "aliceblue",
+    "icons": [{
+            "src": "img/logos/logo50x50.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        }, {
+            "src": "img/logos/logo128x128.png",
+            "sizes": "128x128",
+            "type": "png"
+        },
+        {
+            "src": "img/logos/logo144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "related_application": [{
+        "platform": "web"
+    }]
+
+}

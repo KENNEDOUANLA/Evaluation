@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    margin: 0px 50px;
+}
+
+.hearder1 {
+    margin-left: 0px;
+    background-color: skyblue;
+    height: 50px;
+    display: flex;
+}
+
+.Logo {
+    display: flex;
+}
+
+.myTops {
+    color: white;
+    font-size: xx-large;
+    padding-top: 5px;
+}
+
+.new_top {
+    margin-left: 82%;
+    padding-top: 5px;
+}
+
+.plus {
+    height: 40px;
+}
+
+.offline {
+    border: 2px solid black;
+    padding: 15px;
+    margin: 50% 20%;
+    font-weight: bold;
+    background-color: brown;
+    color: white;
+}
