@@ -60,15 +60,32 @@
 </head>
 
 <body>
-    <div class="hearder1">
-        <div class="Logo">
-            <div><img src="/img/logos/logo50x50.png"></div>
-            <div class="myTops"> TOP_TOP </div>
+    <div class="bigcontainer">
+        <div class="container">
+            <div class="hearder1">
+                <a href="#" id="home">
+                    <div class="Logo">
+                        <div><img src="/img/logos/logo50x50.png"></div>
+                        <div class="myTops" id="TexteTop"> TOP_TOP </div>
+                    </div>
+                </a>
+                <a href="#" id="newTop">
+                    <div class="new_top"><img src="/img/plus.png" class="plus"></div>
+                </a>
+            </div>
+            <div id="valuecontainer" class="valuecontainer">
+
+            </div>
         </div>
-        <div class="new_top"><img src="/img/plus.png" class="plus"></div>
+        <footer></footer>
+    </div>
+    <div style=" margin-left: 15%;  display:none" id="Titre">
+        <label style="font-weight: bold; "> Titre</label> <br>
+        <input type="text" style="width: 100%; height: 25px;">
     </div>
     <!--<script src="cordova.js"></script>-->
     <script src="js/index.js"></script>
+    <script src="js/allScript.js"></script>
 </body>
 
 </html>

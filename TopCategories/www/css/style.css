@@ -1,13 +1,30 @@
 body {
     margin: 0;
-    margin: 0px 50px;
+}
+
+.bigcontainer {
+    box-flex: 1;
+    display: flex;
+    flex: 1 1;
+    flex-direction: column;
+    margin: 0;
+}
+
+.container {
+    margin: 0px 120px;
+    background-color: white;
+    height: 550px;
+    border: 2px solid white;
+    box-shadow: 0 -1px 4px 0 rgb(26 26 26 / 8%), 0 15px 10px 0 rgb(26 26 26 / 12%);
 }
 
 .hearder1 {
-    margin-left: 0px;
     background-color: skyblue;
+    margin-left: 0px;
     height: 50px;
     display: flex;
+    justify-content: space-between;
+    box-shadow: 0 -1px 4px 0 rgb(26 26 26 / 8%), 0 20px 7px 0 rgb(26 26 26 / 12%);
 }
 
 .Logo {
@@ -21,12 +38,19 @@ body {
 }
 
 .new_top {
-    margin-left: 82%;
     padding-top: 5px;
 }
 
 .plus {
     height: 40px;
+}
+
+footer {
+    height: 100px;
+    width: 100%;
+    align-self: flex-end;
+    margin-top: 10px;
+    background-color: rgb(99, 94, 94);
 }
 
 .offline {
@@ -36,4 +60,42 @@ body {
     font-weight: bold;
     background-color: brown;
     color: white;
+}
+
+.valuecontainer {
+    height: 450px;
+    margin: 30px 20% 20px 10%;
+}
+
+
+/* the page index contain*/
+
+.liste_top_block {
+    list-style: none;
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.top {
+    font-weight: bold;
+    border: 1px dashed black;
+    padding: 4px;
+    background-color: wheat;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.Titre {
+    margin-left: 15%;
+}
+
+.Texte_titre {
+    width: 100%;
+    height: 25px;
 }
