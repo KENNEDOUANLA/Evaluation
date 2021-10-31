@@ -1,27 +1,17 @@
-let MyJson = {
-    'kenne': {
-        'nom': "name",
-        'image2': 'url'
-    },
-    'dilane': {}
-}
-
+let MyJson;
+let key = "";
+let value = "";
 let container = document.getElementById('valuecontainer');
-
 let MyJsonFromLocalStorage = localStorage.getItem("MyAPP");
-if (MyJsonFromLocalStorage == null) {
-    JSON.stringify(MyJson);
-    localStorage.setItem("MyAPP", JSON.stringify(MyJson));
-} else {
-
-}
-
 
 const HOME = document.getElementById('home');
 const TexteTop = document.getElementById('TexteTop');
 const NewTop = document.getElementById('newTop');
 
-HOME.addEventListener('click', () => {
+LOAD();
+HOME.addEventListener('click', LOAD);
+
+function LOAD() {
     document.getElementById('valuecontainer').innerHTML = "";
     var container = document.getElementById('valuecontainer');
     TexteTop.innerHTML = "TOP_TOP";
@@ -39,16 +29,16 @@ HOME.addEventListener('click', () => {
             a.addEventListener('click', () => {
                 TexteTop.innerHTML = key;
                 document.getElementById('valuecontainer').innerHTML = "";
-                ViewTop(key);
             });
         }
     }
 
-})
+}
 
 NewTop.addEventListener('click', () => {
     TexteTop.innerHTML = " CREATION ";
     document.getElementById('valuecontainer').innerHTML = "";
+    var NewTop = {};
     var container = document.getElementById('valuecontainer');
     var BigDiv = document.createElement("div");
     var label = document.createElement("label");
@@ -59,16 +49,91 @@ NewTop.addEventListener('click', () => {
     input.classList.add("Texte_titre")
     BigDiv.appendChild(label);
     BigDiv.appendChild(input);
-    container.appendChild(BigDiv);
 
-})
+
+
+    var ListeOfTop = document.createElement("div");
+    var adder = document.createElement("button");
+    var saveur = document.createElement("button");
+    saveur.innerHTML = "Save";
+    saveur.classList.add("adder");
+    saveur.style.marginLeft = "50%";
+    saveur.addEventListener('click', () => {
+        NewTop[key] = value;
+        MyJsonFromLocalStorage = localStorage.getItem("MyAPP");
+        if (MyJsonFromLocalStorage == null) {
+            MyJsonFromLocalStorage = "{}";
+        }
+        MyJson = JSON.parse(MyJsonFromLocalStorage);
+        var Nkey = input.value;
+        MyJson[Nkey] = NewTop;
+        MyJsonFromLocalStorage = JSON.stringify(MyJson);
+        localStorage.setItem("MyAPP", MyJsonFromLocalStorage);
+    });
+
+    adder.innerHTML = "New";
+    adder.classList.add("adder");
+    let i = 0;
+
+    adder.addEventListener('click', () => {
+        if (i !== 0) {
+            NewTop[key] = value;
+            console.log(key);
+            console.log(value);
+        }
+        var smallblock = document.createElement("div");
+        smallblock.classList.add("smallblock");
+        ListeOfTop.appendChild(smallblock);
+        var imageBlock = document.createElement("div");
+        var texte = document.createElement("b");
+        texte.innerText = "Ajouter ou glisser une image"
+        imageBlock.appendChild(texte);
+        var inputImage = document.createElement("input");
+        inputImage.type = "file";
+        inputImage.classList.add("imageInput");
+        var reelImage = document.createElement("img");
+        reelImage.classList.add("realImage");
+
+        inputImage.addEventListener('change', () => {
+            var typeFile = inputImage.files[0].type;
+            if (typeFile == "image/png" || typeFile == "image/jpeg") {
+                reelImage.src = "/img/imagesTop/" + inputImage.files[0].name;
+                inputImage.style.display = "none";
+                texte.style.display = "none";
+                imageBlock.appendChild(reelImage);
+                key = reelImage.src;
+            }
+        });
+
+        imageBlock.appendChild(inputImage);
+
+        imageBlock.classList.add("imagesBlock");
+        var description = document.createElement("textarea");
+        description.placeholder = "     description    "
+        description.classList.add("texte_block");
+        description.addEventListener('change', () => {
+            value = description.value;
+        })
+        smallblock.appendChild(imageBlock);
+        smallblock.appendChild(description);
+
+        i = 1;
+    });
+
+    container.appendChild(BigDiv);
+    container.appendChild(ListeOfTop);
+    container.appendChild(saveur);
+    container.appendChild(adder);
+});
 
 const ViewTop = (key) => {
 
     alert(key);
 }
 
-function NewImage_(input) {
+
+
+function NewImage_(input, reelImage) {
     var oFReader = new FileReader();
     var typeFile = input.files[0].type;
     console.log(input.files[0]);
