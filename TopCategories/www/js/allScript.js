@@ -8,11 +8,12 @@ const HOME = document.getElementById('home');
 const TexteTop = document.getElementById('TexteTop');
 const NewTop = document.getElementById('newTop');
 
-LOAD();
+
 HOME.addEventListener('click', LOAD);
 
 function LOAD() {
     document.getElementById('valuecontainer').innerHTML = "";
+    MyJsonFromLocalStorage = localStorage.getItem("MyAPP");
     var container = document.getElementById('valuecontainer');
     TexteTop.innerHTML = "TOP_TOP";
     if (MyJsonFromLocalStorage !== null) {
@@ -28,7 +29,7 @@ function LOAD() {
             a.href = "#";
             a.addEventListener('click', () => {
                 TexteTop.innerHTML = key;
-                document.getElementById('valuecontainer').innerHTML = "";
+                ViewTop(MyJson[key]);
             });
         }
     }
@@ -50,8 +51,6 @@ NewTop.addEventListener('click', () => {
     BigDiv.appendChild(label);
     BigDiv.appendChild(input);
 
-
-
     var ListeOfTop = document.createElement("div");
     var adder = document.createElement("button");
     var saveur = document.createElement("button");
@@ -69,6 +68,7 @@ NewTop.addEventListener('click', () => {
         MyJson[Nkey] = NewTop;
         MyJsonFromLocalStorage = JSON.stringify(MyJson);
         localStorage.setItem("MyAPP", MyJsonFromLocalStorage);
+        LOAD();
     });
 
     adder.innerHTML = "New";
@@ -78,8 +78,6 @@ NewTop.addEventListener('click', () => {
     adder.addEventListener('click', () => {
         if (i !== 0) {
             NewTop[key] = value;
-            console.log(key);
-            console.log(value);
         }
         var smallblock = document.createElement("div");
         smallblock.classList.add("smallblock");
@@ -126,9 +124,31 @@ NewTop.addEventListener('click', () => {
     container.appendChild(adder);
 });
 
-const ViewTop = (key) => {
 
-    alert(key);
+
+
+const ViewTop = (top) => {
+    document.getElementById('valuecontainer').innerHTML = "";
+    var container = document.getElementById('valuecontainer');
+    var ListeOfTop = document.createElement("div");
+    console.log(typeof(top));
+    for (const key in top) {
+        var smallblock = document.createElement("div");
+        smallblock.classList.add("smallblock");
+        smallblock.style.height = "200px";
+        var image = document.createElement("img");
+        var texteDescription = document.createElement("p");
+        image.style.width = "50%";
+        image.src = key;
+        texteDescription.innerHTML = top[key];
+        texteDescription.style.width = "50%";
+        texteDescription.style.textAlign = "center";
+        smallblock.appendChild(image);
+        smallblock.appendChild(texteDescription);
+        ListeOfTop.appendChild(smallblock);
+    }
+    container.appendChild(ListeOfTop);
+
 }
 
 
@@ -166,3 +186,5 @@ function NewImage_(input, reelImage) {
         tableau.splice(parseInt(BigDiv.id, 10), 1);
     }
 }
+
+LOAD();

@@ -1,5 +1,5 @@
 //ajouter le composant tache id ou/et face id
-const VERSION = 4;
+const VERSION = 2;
 const CACHE_NAME = "offline_v" + VERSION;
 const OFFLINE_URL = "/Html/offline.html";
 const ORIGIN_URL = `${location.protocol}//${location.host}`;
@@ -61,8 +61,6 @@ const deleteOldCaches = () =>
     new Promise((resolve) => {
         caches.keys().then((keys) => {
             Promise.all(keys.map((key) => {
-                console.log(key);
-                console.log(CACHE_NAME)
                 if (key !== CACHE_NAME) {
 
                     caches.delete(key);
