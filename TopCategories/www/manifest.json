@@ -6,11 +6,13 @@
     "background_color": "skyblue",
     "orientation": "portrait-primary",
     "theme_color": "aliceblue",
-    "icons": [{
+    "icons": [
+        {
             "src": "img/logos/logo50x50.png",
             "sizes": "50x50",
             "type": "image/png"
-        }, {
+        },
+        {
             "src": "img/logos/logo128x128.png",
             "sizes": "128x128",
             "type": "png"
@@ -21,8 +23,9 @@
             "type": "image/png"
         }
     ],
-    "related_application": [{
-        "platform": "web"
-    }]
-
+    "related_application": [
+        {
+            "platform": "web"
+        }
+    ]
 }

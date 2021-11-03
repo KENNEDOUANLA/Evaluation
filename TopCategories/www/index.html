@@ -31,12 +31,17 @@
     </script>
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <script>
-        window.OneSignal = window.OneSignal || [];
+        /*if ("cordova" in window) {
+            
+        } else {
+            window.OneSignal = window.OneSignal || [];
         OneSignal.push(function() {
             OneSignal.init({
                 appId: "dfa86885-f6f2-42f3-9601-96658dd06257",
             });
         });
+        }*/
+    
     </script>
     <meta charset="utf-8">
     <!--
@@ -55,30 +60,31 @@
     <meta name="color-scheme" content="light dark">
     <!--<link rel="stylesheet" href="css/index.css">-->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <title>TOP OF TOP</title>
 </head>
 
 <body>
     <div class="bigcontainer">
         <div class="container">
-            <div class="hearder1">
+            <div class="hearder1">    
                 <a href="#" id="home">
                     <div class="Logo">
-                        <div><img src="/img/logos/logo50x50.png"></div>
+                        <div><img src="img/logos/logo50x50.png"></div>
                         <div class="myTops" id="TexteTop"> TOP_TOP </div>
                     </div>
                 </a>
                 <a href="#" id="newTop">
-                    <div class="new_top"><img src="/img/plus.png" class="plus"></div>
+                    <div class="new_top"><img src="img/plus.png" class="plus"></div>
                 </a>
-            </div>
+            </div> 
             <div id="valuecontainer" class="valuecontainer">
 
             </div>
-        </div>
-        <footer></footer>
+        </div>  
+        
     </div>
+    <footer></footer> 
     <!--<script src="cordova.js"></script>-->
     <script src="js/index.js"></script>
     <script src="js/allScript.js"></script>

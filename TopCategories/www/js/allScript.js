@@ -11,7 +11,8 @@ const NewTop = document.getElementById('newTop');
 
 HOME.addEventListener('click', LOAD);
 
-function LOAD() {
+function LOAD()
+{
     document.getElementById('valuecontainer').innerHTML = "";
     MyJsonFromLocalStorage = localStorage.getItem("MyAPP");
     var container = document.getElementById('valuecontainer');
@@ -27,7 +28,8 @@ function LOAD() {
             a.classList.add("top");
             ul.appendChild(a);
             a.href = "#";
-            a.addEventListener('click', () => {
+            a.addEventListener('click', () =>
+            {
                 TexteTop.innerHTML = key;
                 ViewTop(MyJson[key]);
             });
@@ -36,7 +38,8 @@ function LOAD() {
 
 }
 
-NewTop.addEventListener('click', () => {
+NewTop.addEventListener('click', () =>
+{
     TexteTop.innerHTML = " CREATION ";
     document.getElementById('valuecontainer').innerHTML = "";
     var NewTop = {};
@@ -57,7 +60,8 @@ NewTop.addEventListener('click', () => {
     saveur.innerHTML = "Save";
     saveur.classList.add("adder");
     saveur.style.marginLeft = "50%";
-    saveur.addEventListener('click', () => {
+    saveur.addEventListener('click', () =>
+    {
         NewTop[key] = value;
         MyJsonFromLocalStorage = localStorage.getItem("MyAPP");
         if (MyJsonFromLocalStorage == null) {
@@ -75,7 +79,8 @@ NewTop.addEventListener('click', () => {
     adder.classList.add("adder");
     let i = 0;
 
-    adder.addEventListener('click', () => {
+    adder.addEventListener('click', () =>
+    {
         if (i !== 0) {
             NewTop[key] = value;
         }
@@ -92,7 +97,8 @@ NewTop.addEventListener('click', () => {
         var reelImage = document.createElement("img");
         reelImage.classList.add("realImage");
 
-        inputImage.addEventListener('change', () => {
+        inputImage.addEventListener('change', () =>
+        {
             var typeFile = inputImage.files[0].type;
             if (typeFile == "image/png" || typeFile == "image/jpeg") {
                 reelImage.src = "/img/imagesTop/" + inputImage.files[0].name;
@@ -109,7 +115,8 @@ NewTop.addEventListener('click', () => {
         var description = document.createElement("textarea");
         description.placeholder = "     description    "
         description.classList.add("texte_block");
-        description.addEventListener('change', () => {
+        description.addEventListener('change', () =>
+        {
             value = description.value;
         })
         smallblock.appendChild(imageBlock);
@@ -127,11 +134,11 @@ NewTop.addEventListener('click', () => {
 
 
 
-const ViewTop = (top) => {
+const ViewTop = (top) =>
+{
     document.getElementById('valuecontainer').innerHTML = "";
     var container = document.getElementById('valuecontainer');
     var ListeOfTop = document.createElement("div");
-    console.log(typeof(top));
     for (const key in top) {
         var smallblock = document.createElement("div");
         smallblock.classList.add("smallblock");
@@ -148,12 +155,12 @@ const ViewTop = (top) => {
         ListeOfTop.appendChild(smallblock);
     }
     container.appendChild(ListeOfTop);
-
 }
 
 
 
-function NewImage_(input, reelImage) {
+function NewImage_(input, reelImage)
+{
     var oFReader = new FileReader();
     var typeFile = input.files[0].type;
     console.log(input.files[0]);
@@ -170,7 +177,8 @@ function NewImage_(input, reelImage) {
     Deleter.innerHTML = "X"
     Deleter.classList.add("image_deleter_btn");
     ImageBlock.classList.add("image-uploader-temp");
-    oFReader.onload = function(oFREvent) {
+    oFReader.onload = function (oFREvent)
+    {
         Image.src = "" + oFREvent.target.result;
     }
     Image.classList.add("resetImage");
@@ -181,7 +189,8 @@ function NewImage_(input, reelImage) {
     ImageBlock.appendChild(Image);
 
     //methodes
-    Deleter.onclick = () => {
+    Deleter.onclick = () =>
+    {
         document.getElementById('container').removeChild(BigDiv);
         tableau.splice(parseInt(BigDiv.id, 10), 1);
     }
