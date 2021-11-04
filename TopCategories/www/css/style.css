@@ -60,6 +60,7 @@ footer {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     width: initial;
+    position: sticky;
 
 }
 
@@ -165,7 +166,15 @@ a {
     width: 100%;
     opacity: 1;
 }
-
+.google_map{
+ border: 1px solid white;
+ height: 30px;
+ width: 100px;
+ border-radius: 4px;
+ background-color: green;
+ margin: 0px 40% 0px 40%;
+ text-align: center;
+}
 
 @media only screen and (max-width:640px){
     footer{
@@ -175,6 +184,7 @@ a {
         border-top-left-radius: 7px;
         border-top-right-radius: 7px;
         width: auto;
+        position: sticky;
 
     }
 

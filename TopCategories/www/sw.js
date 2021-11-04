@@ -6,7 +6,6 @@ const ORIGIN_URL = `${location.protocol}//${location.host}`;
 const CACHED_FILES = [
     OFFLINE_URL,
     `${ORIGIN_URL}/css/style.css`,
-    `${ORIGIN_URL}/js/index.js`,
     `${ORIGIN_URL}/img/logos/logo50x50.png`,
     `${ORIGIN_URL}/img/plus.png`,
 

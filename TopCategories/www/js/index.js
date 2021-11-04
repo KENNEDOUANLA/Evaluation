@@ -1,31 +1,102 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+var app = {
+    initialize: function () 
+    {
+        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+    },
+    onDeviceReady: function () 
+    {
+        // Cordova is now initialized. Have fun!
+        alert('Running cordova-' + cordova.platformId + '@' + cordova.version);
+        this.receivedEvent('deviceready');
 
-// Wait for the deviceready event before using any of Cordova's device APIs.
-// See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
-document.addEventListener('deviceready', onDeviceReady, false);
+    },
+    receivedEvent: function (id)
+    {
+        var parentElement = document.getElementById(id);
+        parentElement.classList.add('ready');
 
-function onDeviceReady()
-{
-    // Cordova is now initialized. Have fun!
+    }
 
-    console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
-    document.getElementById('deviceready').classList.add('ready');
-    alert("load");
 }
+//AIzaSyAH6DaDUOd7wSb1pwYNH2PA5lvExEAmZEQ
+let stateMap = document.getElementById("google_map");
+let viewer = document.getElementById("map");
+let map;
+
+function googleMap()
+{
+
+    if (stateMap.innerHTML === "Google map") {
+        navigator.geolocation.getCurrentPosition
+            (onMapSuccess, onMapError, { enableHighAccuracy: true });
+
+        stateMap.innerHTML = " Close map";
+    }
+    else {
+        viewer.style.display = "none";
+        stateMap.innerHTML = "Google map";
+
+    }
+}
+
+
+var onMapSuccess = function (position)
+{
+    Latitude = position.coords.latitude;
+    Longitude = position.coords.longitude;
+    initMap(Latitude, Longitude);
+
+}
+
+function initMap(latitude, longitude)
+{
+    var LatLong = new google.maps.LatLng(latitude, longitude);
+    var mapOption = {
+        center: LatLong,
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    viewer.style.display = "block";
+    map = new google.maps.Map(viewer, mapOption);
+
+}
+//AIzaSyB0dtNMb8xZh0aMLX4P-KiNccovF1w2tpM
+// MOI AIzaSyBalI6eUBf2_r4hfmTYrj6A4ddFxTpg3hY
+function onMapError(error)
+{
+    alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+}
+
+app.initialize();
+
+stateMap.addEventListener('click', googleMap, false);
+/*window.addEventListener("batterystatus", onBatteryStatus, false);
+window.addEventListener("batterylow", onBatteryLow, false);
+window.addEventListener("batterycritical", onBatteryCritical, false);
+function onBatteryStatus(status)
+{
+    alert("Level: " + status.level + " isPlugged: " + status.isPlugged);
+}
+
+function onBatteryLow(status)
+{
+    alert("Battery Level Low " + status.level + "%");
+}
+
+function onBatteryCritical(status)
+{
+    alert("Battery Level Critical " + status.level + "%\nRecharge Soon!");
+}
+
+navigator.camera.cleanup(onSuccess, onFail);
+
+function onSuccess()
+{
+    alert("Camera cleanup success.")
+}
+
+function onFail(message)
+{
+    alert('Failed because: ' + message);
+}*/

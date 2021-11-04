@@ -9,6 +9,9 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <preference name="StatusBarOverlaysWebView" value="true"/>
+    <preference name="StatusBarBackgroundColor" value="#87ceeb"/>
+    <preference name="StatusBarStyle" value="lightcontent"/>
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
