@@ -83,20 +83,39 @@ NewTop.addEventListener('click', () =>
     {
         if (i !== 0) {
             NewTop[key] = value;
+            i++;
         }
         var smallblock = document.createElement("div");
         smallblock.classList.add("smallblock");
         ListeOfTop.appendChild(smallblock);
         var imageBlock = document.createElement("div");
         var texte = document.createElement("b");
-        texte.innerText = "Ajouter ou glisser une image"
+        texte.innerText = "Ajouter ou glisser une image : du dossier img/imagesTop";
         imageBlock.appendChild(texte);
         var inputImage = document.createElement("input");
         inputImage.type = "file";
         inputImage.classList.add("imageInput");
         var reelImage = document.createElement("img");
         reelImage.classList.add("realImage");
+        /*var ImageLink;
 
+        imageBlock.addEventListener('click', () =>
+        {
+            ImageLink = prompt("Champ Obligatoire : Entrer le lien de l'image");
+            tableau = ImageLink.split("/");
+            var type1 = tableau[tableau.length - 1].split(".");
+            alert(type1);
+            var type = type1[type1.length - 1];
+            alert(typeof (type) + "   " + type);
+            if (type == "png" || type == "jpeg" || type == "jpg" || type == "html") {
+                reelImage.src = ImageLink;
+                alert(ImageLink);
+            } else {
+                alert("ce lien n'est pas pour une image ...")
+            }
+
+        }, false);
+        */
         inputImage.addEventListener('change', () =>
         {
             var typeFile = inputImage.files[0].type;
@@ -106,9 +125,10 @@ NewTop.addEventListener('click', () =>
                 texte.style.display = "none";
                 imageBlock.appendChild(reelImage);
                 key = reelImage.src;
+            } else {
+                reelImage.src = "" + i;
             }
-        });
-
+        }, false);
         imageBlock.appendChild(inputImage);
 
         imageBlock.classList.add("imagesBlock");

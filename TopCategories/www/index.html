@@ -2,28 +2,32 @@
 <html>
 
 <head>
-    <script>
-        window.addEventListener("load", () => {
-            if ("serviceWorker" in navigator) {
-                navigator.serviceWorker.register("/sw.js", {
-                    scope: "./"
-                }).then((registration) => {});
-            }
-        });
-    </script>
+
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
     <script>
-        /*if ("cordova" in window) {
-            
-        } else {
-            window.OneSignal = window.OneSignal || [];
-        OneSignal.push(function() {
-            OneSignal.init({
-                appId: "dfa86885-f6f2-42f3-9601-96658dd06257",
+        if ("cordova" in window)
+        {
+
+        } else
+        {
+            window.addEventListener("load", () => {
+                if ("serviceWorker" in navigator)
+                {
+                    navigator.serviceWorker.register("/sw.js", {
+                        scope: "./"
+                    }).then((registration) => { });
+                }
+
             });
-        });
-        }*/
-    
+            window.OneSignal = window.OneSignal || [];
+            OneSignal.push(function () {
+                OneSignal.init({
+                    appId: "dfa86885-f6f2-42f3-9601-96658dd06257",
+                });
+            });
+
+        }
+
     </script>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
@@ -38,9 +42,9 @@
 
 <body>
     <div id="map" style="width: 100%; height: 100%; position: absolute; overflow: hidden; display: none;"></div>
-    <div class="bigcontainer" >
+    <div class="bigcontainer">
         <div class="container">
-            <div class="hearder1">    
+            <div class="hearder1">
                 <a href="#" id="home">
                     <div class="Logo">
                         <div><img src="img/logos/logo50x50.png"></div>
@@ -50,24 +54,23 @@
                 <a href="#" id="newTop">
                     <div class="new_top"><img src="img/plus.png" class="plus"></div>
                 </a>
-            </div> 
-            <div id="valuecontainer"  class="valuecontainer">
             </div>
-        </div>    
+            <div id="valuecontainer" class="valuecontainer">
+            </div>
+        </div>
     </div>
     <div id="deviceready"></div>
     <footer>
         <div class="google_map" id="google_map">Google map</div>
-    </footer> 
-    
+    </footer>
+
     <!--<script src="cordova.js"></script>-->
     <script src="cordova.js"></script>
     <script src="js/index.js"></script>
     <script src="js/allScript.js"></script>
-    <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0dtNMb8xZh0aMLX4P-KiNccovF1w2tpM">
-        </script>
-   
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0dtNMb8xZh0aMLX4P-KiNccovF1w2tpM">
+    </script>
+
 </body>
 
 </html>

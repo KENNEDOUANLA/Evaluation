@@ -1,5 +1,5 @@
 //ajouter le composant tache id ou/et face id
-const VERSION = 1;
+const VERSION = 2;
 const CACHE_NAME = "offline_v" + VERSION;
 const OFFLINE_URL = "/Html/offline.html";
 const ORIGIN_URL = `${location.protocol}//${location.host}`;
@@ -8,7 +8,8 @@ const CACHED_FILES = [
     `${ORIGIN_URL}/css/style.css`,
     `${ORIGIN_URL}/img/logos/logo50x50.png`,
     `${ORIGIN_URL}/img/plus.png`,
-
+    `${ORIGIN_URL}/js/allScript.js`,
+    `${ORIGIN_URL}/js/index.js`,
 ];
 
 // SW install
